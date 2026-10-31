@@ -1,0 +1,20 @@
+samplerate: 16000
+algorithm: dd_wiener        # spectral_subtraction | dd_wiener | log_mmse | om_lsa
+frame_ms: 20
+calib_sec: 1.0
+highpass_hz: 150 #80
+noise_beta: 1.5             # only used by spectral_subtraction
+noise_floor: 0.02
+ema_alpha: 0.98 #0.96       # noise tracking (closer to 1.0 = slower)
+speech_alpha: 0.998         # update rate when speech/foreground is present
+noise_gate_db: 6.0          # below this SNR, treat frame as noise-dominant
+gain_smooth: 0.9 #0.8      # temporal smoothing of spectral gain
+vad_snr_db: 3.0             # bin SNR threshold (dB) to label a frequency bin as speech-dominant
+vad_speech_ratio: 0.25      # if this fraction of bins look speech-like, hold speech protection
+vad_hangover_frames: 6      # keep protection for this many frames after speech
+dd_alpha: 0.98              # decision-directed prior SNR smoothing
+omlsa_q: 0.3                # speech-absence prior for OM-LSA
+omlsa_min_gain_db: -20.0    # residual floor when speech absence is likely
+min_track_frames: 50         # OM-LSA minima tracker window (frames)
+device_in: default
+device_out: default
